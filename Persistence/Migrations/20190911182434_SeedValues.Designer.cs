@@ -8,7 +8,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190911164055_SeedValues")]
+    [Migration("20190911182434_SeedValues")]
     partial class SeedValues
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,17 +32,17 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "101"
+                            Name = "Value 101"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "102"
+                            Name = "Value 102"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "103"
+                            Name = "Value 103"
                         });
                 });
 #pragma warning restore 612, 618

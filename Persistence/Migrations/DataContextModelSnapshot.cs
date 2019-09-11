@@ -30,17 +30,17 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "101"
+                            Name = "Value 101"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "102"
+                            Name = "Value 102"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "103"
+                            Name = "Value 103"
                         });
                 });
 #pragma warning restore 612, 618
