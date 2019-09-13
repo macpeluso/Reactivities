@@ -1,16 +1,14 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { Item, Button, Label, Segment } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 interface IProps {
     activities: IActivity[];
     selectActivity: (id: string) => void;
-    deleteActivity: (id: string) => void;
+    submitting: boolean;
+    deleteActivity: (event: SyntheticEvent<HTMLButtonElement>, id: string) => void;
+    target: string;
 }
-const ActivityList: React.FC<IProps> = ({
-    activities,
-    selectActivity,
-    deleteActivity
-}) => {
+const ActivityList: React.FC<IProps> = ({ activities, selectActivity, deleteActivity, submitting, target }) => {
     return (
         <Segment clearing>
             <Item.Group divided>
@@ -26,17 +24,14 @@ const ActivityList: React.FC<IProps> = ({
                                 </div>
                             </Item.Description>
                             <Item.Extra>
+                                <Button onClick={() => selectActivity(activity.id)} floated="right" content="View" color="blue" />
                                 <Button
-                                    onClick={() => selectActivity(activity.id)}
-                                    floated="right"
-                                    content="View"
-                                    color="blue"
-                                />
-                                <Button
-                                    onClick={() => deleteActivity(activity.id)}
+                                    onClick={e => deleteActivity(e, activity.id)}
                                     floated="right"
                                     content="Delete"
                                     color="red"
+                                    loading={target === activity.id && submitting}
+                                    name={activity.id}
                                 />
                                 <Label basic content={activity.category} />
                             </Item.Extra>
